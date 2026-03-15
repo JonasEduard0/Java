@@ -79,20 +79,6 @@ Este repositório inclui exemplos de:
 
 ---
 
-# 🚀 Possíveis Expansões
-
-No futuro este repositório pode incluir:
-
-* Estruturas de dados em Java
-* Algoritmos
-* Collections Framework
-* Tratamento de exceções
-* Generics
-* Streams
-* Pequenos projetos em Java
-
----
-
 # 👨‍💻 Autor
 
 Desenvolvido por **Jonas Eduardo Campos Martins**
