@@ -102,8 +102,4 @@ public class Classe {
         // Compara apenas o nome da empresa (chave única)
         return java.util.Objects.equals(this.nomeEmpresa, other.nomeEmpresa);
     }
-    
-    public void mostraEmpresa(){ // Metodo que sera sobrescrito pelo filho
-        System.out.println("Nome da empresa: " + nomeEmpresa);
-    }
 }
