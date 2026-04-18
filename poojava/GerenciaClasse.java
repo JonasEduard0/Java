@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Classe para criar/armazenar/buscar/atualizar/remover 
-public class GerenciaClasse extends Classe{ // Herança da classe pai 'Classe'.
+public class GerenciaClasse Classe{
     private List<Classe> lst;//Cria o atributo lst do tipo Lista de Classes, pra armazenar elas
 
     public GerenciaClasse() {
@@ -35,10 +35,5 @@ public class GerenciaClasse extends Classe{ // Herança da classe pai 'Classe'.
             }
         }
         return null;
-    }
-    
-    @Override
-    public void mostraEmpresa(){ // Metodo que sera sobrescrito pelo filho
-        System.out.println("Empresa nao sera mostrada aqui, va para Classe.");
     }
 }
