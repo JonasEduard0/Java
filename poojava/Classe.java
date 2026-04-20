@@ -1,4 +1,4 @@
-package com.mycompany.orientaobjeto;
+package com.mycompany.poojava;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -6,41 +6,35 @@ import java.util.Scanner;
 public class Classe {
     public static int contador = 0; // Pertence á classe, não ao objeto. Será algo em comum em todas intâncias.
     private final int imutavel = 10; // Não permite a variavel ser reescrita
+    
     private String nomeEmpresa;
-    private double precoAcao;
-    private double variacaoDiaria;
     private double qtdAcoes;
 
     public void setNomeEmpresa(String nomeEmpresa) { this.nomeEmpresa = nomeEmpresa; }
-    public void setPrecoAcao(double precoAcao) { this.precoAcao = precoAcao; }
     public void setQtdAcoes(double qtdAcoes) { this.qtdAcoes = qtdAcoes; }
-    public void setVariacaoDiaria(double variacaoDiaria) { this.variacaoDiaria = variacaoDiaria; }
     
     public String getNomeEmpresa() { return nomeEmpresa; }
-    public double getPrecoAcao() { return precoAcao; }
     public double getQtdAcoes() { return qtdAcoes; }
-    public double getVariacaoDiaria() { return variacaoDiaria; }
 
-    public Classe(String nomeEmpresa, double precoAcao, double variacaoDiaria, double qtdAcoes) {
+    public Classe(String nomeEmpresa, double qtdAcoes) {
         this.nomeEmpresa = nomeEmpresa; // Construtor construir e preencher os dados ao mesmo tempo
-        this.precoAcao = precoAcao;
-        this.variacaoDiaria = variacaoDiaria;
         this.qtdAcoes = qtdAcoes;
+        contador++; //vai contar quantas intâncias teve dessa classe.
+    }
+    
+    public Classe(String nomeEmpresa) { //Sobrecarga de metodo, mesmo que de cima mas passa parametro diferente
+        this.nomeEmpresa = nomeEmpresa; // Construtor construir e preencher os dados ao mesmo tempo
         contador++; //vai contar quantas intâncias teve dessa classe.
     }
 
     public Classe() { // Construtor q aloca espaço de memoria para a instancia, inicializa zarado.
         nomeEmpresa = "";
-        precoAcao = 0.0;
-        variacaoDiaria = 0.0;
         qtdAcoes = 0.0;
         contador++;
     }
     
     public Classe(Classe outra) {
         this.nomeEmpresa = outra.nomeEmpresa;
-        this.precoAcao = outra.precoAcao;
-        this.variacaoDiaria = outra.variacaoDiaria;
         this.qtdAcoes = outra.qtdAcoes;
     }
     
@@ -49,12 +43,6 @@ public class Classe {
 
         System.out.print("nomeEmpresa: "); //Preenche cada um dos atributos
         this.nomeEmpresa = ler.next();
-
-        System.out.print("precoAcao: ");
-        this.precoAcao = ler.nextDouble();
-
-        System.out.print("variacaoDiaria: ");
-        this.variacaoDiaria = ler.nextDouble();
 
         System.out.print("qtdAcoes: ");
         this.qtdAcoes = ler.nextDouble();
@@ -66,16 +54,14 @@ public class Classe {
     
     @Override // Sobrescrever o metodo que já existe com esse de mesmo nome.
     public String toString() { // imprime, mas override no toString é melhor.
-        return "Nome da Empresa: " + nomeEmpresa + 
-	       "\nPreco da Acao: " + precoAcao + 
-	       "\nVariacao Diaria: " + variacaoDiaria + 
+        return "Nome da Empresa: " + nomeEmpresa +
 	       "\nQuantidade de Acoes: " + qtdAcoes; }
 
     @Override
     public int hashCode() { // Melhora pesquisas quando trabalhar com hashSet/Map<>.
         int hash = 3;
         hash = 11 * hash + Objects.hashCode(this.nomeEmpresa);
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.precoAcao) ^ (Double.doubleToLongBits(this.precoAcao) >>> 32));
+        hash = 11 * hash + (int) (Double.doubleToLongBits(this.qtdAcoes) ^ (Double.doubleToLongBits(this.qtdAcoes+1) >>> 32));
         return hash;
     }
     

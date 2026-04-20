@@ -1,4 +1,4 @@
-package com.mycompany.orientaobjeto;
+package com.mycompany.poojava;
 
 // IMPORTS
 import java.util.Scanner;
@@ -21,18 +21,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Poojava {
-    
-    // Método simples, sem parâmetros
-    static void metodo() {
-        System.out.println("\nEsse é um método");
-        System.out.println("Legal");
-    }
-
-    // Sobrecarga de método (mesmo nome, parâmetro diferente)
-    static void metodo(String nome) {
-        System.out.println("\nEsse é o método do " + nome);
-        System.out.println("Top");
-    }
 
     // Varargs: aceita vários inteiros como se fosse um array
     static int adicionar(int... numeros) {
@@ -47,8 +35,8 @@ public class Poojava {
     public static void main(String[] args) { //chama métodos static pois main é static
 
         // Scanner lê dados digitados pelo usuário
-        Scanner sc = new Scanner(System.in); /*
-
+        Scanner sc = new Scanner(System.in);
+        /*
         // ENTRADA E SAÍDA DE DADOS
         System.out.print("Digite seu nome: ");
         String nome = sc.nextLine(); // lê uma linha inteira
@@ -252,9 +240,35 @@ public class Poojava {
         GerenciaClasse gc = new GerenciaClasse();
         gc.adicionarClasse(c1);
         gc.buscarClasse("Classe 1");
-        gc.removerClasse("Classe 1"); */
+        gc.removerClasse("Classe 1");
+        
+
+        GerenciaClasse gc1 = new GerenciaClasse(); // Cria gerenciador
+
+        Classe c1 = new Classe("EmpresaA", 100);
+        Classe c2 = new Classe("EmpresaB", 200);
+
+        gc1.adicionarClasse(c1); // Adiciona classe ao Gerenciador
+        gc1.adicionarClasse(c2);
+
+        System.out.println("=== ORIGINAL ===");
+        System.out.println(gc1);
+
+        Classe encontrada = gc1.buscarClasse("EmpresaA");
+        if (encontrada != null) {
+            System.out.println("Encontrada: " + encontrada);
+        }
+
+        boolean removido = gc1.removerClasse("EmpresaB");
+        System.out.println("Removeu EmpresaB? " + removido);
+
+        GerenciaClasse gc2 = new GerenciaClasse(); // Copiar (deep copy)
+        gc2.copiar(gc1);
+
+        System.out.println("=== COPIA ===");
+        System.out.println(gc2);*/
         
         
-        sc.close(); // SEMPRE fechar o Scanner
+        sc.close();
     }
 }
