@@ -199,7 +199,12 @@ Gerenciador de classes: é uma classe cuja responsabilidade é criar, armazenar,
 
 
 		Relacionamentos: Associação
-É a relação do tipo "tem um", a classe Carro tem uma classe Roda. Carro tem o atributo List<Roda> rodas.
-Tendo uma classe que gerencia outra, teremos os metodos Buscar, Remover, Adicionar, toString com StringBuilder e copiar adaptados a uma lista de objetos gerenciada.
+Relação do tipo "tem um", onde uma classe possui outra como atributo.
+Exemplo: classe Carro tem atributo do tipo Roda rodas.
 
-		Associação + Gerenciador + SRP
+		Relacionamentos: Agregação
+Um objeto usa outro, mas o objeto usado pode existir independentemente.
+Exemplo: classe Voo possui uma atributo List<Passageiro> passageiros;
+
+
+		
