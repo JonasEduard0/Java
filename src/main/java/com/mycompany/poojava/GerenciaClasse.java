@@ -8,7 +8,7 @@ import java.util.List;
 //Classe para criar/armazenar/buscar/atualizar/remover 
 public class GerenciaClasse {
     private int numero;
-    private List<Classe> classe;//Cria o atributo lst do tipo Lista de Classes, pra armazenar elas
+    private List<Classe> classe; // Cria o atributo lst do tipo Lista de Classes, pra armazenar elas
 
     public GerenciaClasse() {
         numero = 0;
@@ -60,21 +60,13 @@ public class GerenciaClasse {
     @Override
     public String toString() { // Vai acumulando internamente, mais rápido.
         StringBuilder sb = new StringBuilder() // Cria um objeto vazio pra montar a String.
-                
         .append("Numero: ").append(numero).append(", "); // Imprime texto, variavel, e espaçamento
                                                          // Imprimiria cada atributo assim aqui.
         for (Classe c : classe) {
             sb.append(c).append(". \n"); // chama toString da Roda.
         }
-
         return sb.toString(); // Converte tudo pra String no fim.
     }
-    
- /* public void copiar(GerenciaClasse outro) {
-        this.numero = outro.getNumero();
-
-        this.classe = outro.getClasse(); Copia rasa, apenas aponta pra objeto e nao cria um.
-    } */
     
     public void copiar(GerenciaClasse outro) {
         numero = outro.getNumero();

@@ -156,12 +156,6 @@ Ajudam no desempenho.
 Multithreading significa vários fluxos de execução ao mesmo tempo.
 
 
-	Agregação e Composição
-Agregação ocorre quando objetos podem existir de forma independente.
-Composição ocorre quando um objeto depende do outro.
-Exemplo de composição: Moto possui Engrenagem.
-
-
 		Collection Framework e Map
 Conjunto unificado de classes e interfaces que permite manipular dados. Fornece Estruturas de Dados prontas.
 For-each percorre todos os elementos de um array.
@@ -207,4 +201,13 @@ Um objeto usa outro, mas o objeto usado pode existir independentemente.
 Exemplo: classe Voo possui uma atributo List<Passageiro> passageiros;
 
 
-		
+		Swing GUI(Graphical User Interface)
+Cada interface gráfica, cada componente, é um objeto. Tudo é orientação a objetos.
+JFrame: A janela principal vazia
+JForm: É uma tela visual pronta criada pelo NetBeans.
+JLabel: Texto na tela.
+JTextField: Campo de digitação.
+JButton: Botão clicável.
+JPanel: Container.
+
+
