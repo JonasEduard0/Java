@@ -269,6 +269,19 @@ public class Poojava {
         System.out.println(gc2);*/
         
         
+        
+        try {
+            int divisor = 0;
+            if (divisor == 0) {
+                throw new DivisaoporZeroException("Não é possível dividir por zero");
+            }
+            int a = 3 / divisor;
+            System.out.println(a);
+        } catch (DivisaoporZeroException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
         sc.close();
     }
 }

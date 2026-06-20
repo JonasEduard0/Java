@@ -1,4 +1,4 @@
-package poojava; 
+package com.mycompany.poojava;
 
 public class MyRunnable implements Runnable{ //interface String texto; 
     String texto;

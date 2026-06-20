@@ -80,10 +80,15 @@ Varargs permitem passar quantidade variável de argumentos para um método.
 
 
 	Tratamento de erros (exceções)
-try contém o código que pode gerar erro.
-catch trata o erro.
-finally sempre executa, com erro ou não.
+try contém o código que pode gerar erro, catch trata o erro; finally sempre executa, com erro ou não.
 Evita que o programa quebre.
+## xceptions
+
+- As exceptions representam condições excepcionais que ocorrem durante a execução de um programa e podem interromper o fluxo normal de execução.
+- Elas são utilizadas para lidar com erros e situações imprevistas, permitindo que o programa se recupere ou tome ações apropriadas diante desses eventos.
+- Em Java, as exceptions são objetos que herdam da classe **`Throwable`** e são divididas em duas categorias principais: **checked** exceptions (exceções verificadas) e **unchecked** exceptions (exceções não verificadas).
+    - checked exceptions: são aquelas que devem ser tratadas explicitamente pelo programador,
+    - unchecked exceptions: não exigem tratamento obrigatório.
 
 
 	Arquivos de texto
@@ -105,10 +110,8 @@ static	  | Pertence á classe, não ao objeto. Será algo em comum em todas int�
 
 
 	Herança
-Uma classe filha herda características da classe pai.
-Usa a palavra extends.
-
-'super' é usado para chamar o construtor ou métodos da classe pai.
+Uma classe filha herda características da classe pai. Usado quando houver classes semelhantes e quiser reutilizar código. Usa a palavra 'extends', public class Cliente extends Pessoa.
+'super' é usado para chamar um métodos da classe pai, super.imprimir().
 
 	Polimorfismo
 Um objeto pode ser tratado como se fosse de outro tipo.
@@ -211,3 +214,4 @@ JButton: Botão clicável.
 JPanel: Container.
 
 
+		

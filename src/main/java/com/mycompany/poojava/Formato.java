@@ -1,4 +1,4 @@
-package poojava;
+package com.mycompany.poojava;
 
 public abstract class Formato {
     abstract double area();//abstrato é criado no pai abstrato, implementado no filho

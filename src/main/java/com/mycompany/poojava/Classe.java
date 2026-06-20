@@ -3,7 +3,7 @@ package com.mycompany.poojava;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Classe {
+public class Classe extends Heranca{ // entends para herdar metodos da classe pai Heranca
     public static int contador = 0; // Pertence á classe, não ao objeto. Será algo em comum em todas intâncias.
     private final int imutavel = 10; // Não permite a variavel ser reescrita
     
@@ -54,8 +54,9 @@ public class Classe {
     
     @Override // Sobrescrever o metodo que já existe com esse de mesmo nome.
     public String toString() { // imprime, mas override no toString é melhor.
+        super.imprimeNumer(); // Super para acessar metodo do Pai
         return "Nome da Empresa: " + nomeEmpresa +
-	       "\nQuantidade de Acoes: " + qtdAcoes; }
+               "\nQuantidade de Acoes: " + qtdAcoes;}
 
     @Override
     public int hashCode() { // Melhora pesquisas quando trabalhar com hashSet/Map<>.
@@ -88,4 +89,5 @@ public class Classe {
         // Compara apenas o nome da empresa (chave única)
         return java.util.Objects.equals(this.nomeEmpresa, other.nomeEmpresa);
     }
+    
 }

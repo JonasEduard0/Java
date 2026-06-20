@@ -1,4 +1,4 @@
-package poojava;
+package com.mycompany.poojava;
 
 class Caixa<T, U> {//cria um Generico passando <Type>, substitui primitivo
     T item;        //pode ter 1+ tipos.
