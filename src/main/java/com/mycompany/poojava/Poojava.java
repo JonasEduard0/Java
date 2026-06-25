@@ -266,20 +266,28 @@ public class Poojava {
         gc2.copiar(gc1);
 
         System.out.println("=== COPIA ===");
-        System.out.println(gc2);*/
+        System.out.println(gc2);
         
         
         
         try {
             int divisor = 0;
-            if (divisor == 0) {
-                throw new DivisaoporZeroException("Não é possível dividir por zero");
+            if (divisor == 0) { // Erro personalizado
+                throw new DivisaoporZeroException("Nao e possivel dividir por zero");
             }
             int a = 3 / divisor;
             System.out.println(a);
         } catch (DivisaoporZeroException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
+        
+        
+        // Abstrata a = new Abstrata(); ERRO - classe abstrata não pode intanciar
+        //Pode criar referência de uma classe abst. e atribuír a um objeto da filha.
+        Abstrata abstrata = new Concreta();
+        abstrata.printar();
+        Concreta concreta = new Concreta();
+        concreta.interfaces();
         
         
         sc.close();
