@@ -31,6 +31,13 @@ public class Poojava {
         return soma;
     }
     
+    
+    public static void Polimorfo(Interface a, Interface b) {
+            a.interfaces();
+            b.interfaces();
+        }
+    
+    
     // MAIN
     public static void main(String[] args) { //chama métodos static pois main é static
 
@@ -279,7 +286,7 @@ public class Poojava {
             System.out.println(a);
         } catch (DivisaoporZeroException e) {
             System.out.println(e.getMessage());
-        }*/
+        }
         
         
         // Abstrata a = new Abstrata(); ERRO - classe abstrata não pode intanciar
@@ -287,7 +294,13 @@ public class Poojava {
         Abstrata abstrata = new Concreta();
         abstrata.printar();
         Concreta concreta = new Concreta();
-        concreta.interfaces();
+        concreta.interfaces();*/
+        
+        
+        // Função Polimorfo chama de forma polimórfica os objetos concretos
+        Interface co = new Concreta();
+        Interface cl = new Classe();
+        Polimorfo(co, cl);
         
         
         sc.close();

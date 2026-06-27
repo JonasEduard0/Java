@@ -112,8 +112,13 @@ Uma classe filha herda características da classe pai. Usado quando houver class
 'super' é usado para chamar um métodos da classe pai, super.imprimir().
 
 	Polimorfismo
-Um objeto pode ser tratado como se fosse de outro tipo.
-Muito usado com herança e classes pai.
+ Capacidade de um objeto ser referenciado por uma superclasse/interface e comportar de maneira diferente pra cada classe filha.
+ A interface "Animal" declara o método "comunicar()" que é implementado pelas classes descendentes.
+ Um objeto de qualquer uma das classes descendentes pode ser referenciado como um objeto da superclasse "Animal".
+ Permite tratar objetos de diferentes classes de forma genérica, simplificando o código.
+Durante a execução, o método chamado dependerá do tipo de classe descendente.
+ Permite a criação de métodos que operam em objetos da superclasse ou da interface, mas que podem ser sobrescritos e comportarem de maneira diferente nas classes descendentes.
+ Acontece quando passamos a interface como parâmetros de funções.
 
 
 	Classe Abstrata

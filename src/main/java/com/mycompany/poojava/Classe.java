@@ -3,7 +3,7 @@ package com.mycompany.poojava;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Classe extends Heranca{ // entends para herdar metodos da classe pai Heranca
+public class Classe extends Heranca implements Interface{ // entends para herdar metodos da classe pai Heranca
     public static int contador = 0; // Pertence á classe, não ao objeto. Será algo em comum em todas intâncias.
     private final int imutavel = 10; // Não permite a variavel ser reescrita
     
@@ -90,4 +90,7 @@ public class Classe extends Heranca{ // entends para herdar metodos da classe pa
         return java.util.Objects.equals(this.nomeEmpresa, other.nomeEmpresa);
     }
     
+    public void interfaces(){
+        System.out.println("Metodo de interface. Polimorfismo (Classe)");
+    }
 }
