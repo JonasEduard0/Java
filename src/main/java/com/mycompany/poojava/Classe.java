@@ -90,7 +90,13 @@ public class Classe extends Heranca implements Interface{ // entends para herdar
         return java.util.Objects.equals(this.nomeEmpresa, other.nomeEmpresa);
     }
     
+    @Override
     public void interfaces(){
         System.out.println("Metodo de interface. Polimorfismo (Classe)");
+    }
+
+    @Override
+    public void imprimir() {
+        System.out.println("Impresso por Impressoras Classe");
     }
 }

@@ -12,4 +12,10 @@ public class Concreta extends Abstrata implements Interface{
     public void interfaces(){
         System.out.println("Metodo de interface. Polimorfismo (Concreta)");
     }
+
+    @Override
+    public void imprimir() {
+        System.out.println("Impresso por Impressoras Concreta");
+    }
+    
 }

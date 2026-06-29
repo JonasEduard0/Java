@@ -192,10 +192,14 @@ LinkedList (lista encadeada): melhor performance em inserção e remoção em qu
 Vector (lista sincronizada): parecido com ArrayList, mas seguro para múltiplas threads e um pouco mais lento.
 
 
-		Princípio da Responsabilidade Única (Single Responsiblity Principle - SRP)
+		SOLID - Princípio da Responsabilidade Única (Single Responsiblity Principle - SRP)
 É um dos cinco princípios fundamentais do SOLID. Declara que uma classe deve ter apenas uma razão para mudar, significando que uma classe deve ter apenas um trabalho ou responsabilidade.
 
 Gerenciador de classes: é uma classe cuja responsabilidade é criar, armazenar, buscar, atualizar e remover objetos de outra classe, pois sem ela, o Main - que deveria apenas chamar classes - ficaria responsável por tudo isso e violaria o SRP. Usa quando tem múltiplas instâncias de uma classe e precisa consultar, organizar ou manipular dados.
+
+	Dependency Inversion Principle
+Depender de abstrações e não de implementações concretas, programar para interfaces e não para implementações, o que torna o código mais flexível e de fácil manutenção.
+Componentes de alto nível devem depender de abstrações, enquanto os componentes de baixo nível devem ser implementações concretas dessas abstrações.
 
 
 		Relacionamentos: Associação
@@ -208,13 +212,16 @@ Exemplo: classe Voo possui uma atributo List<Passageiro> passageiros;
 
 
 		Swing GUI(Graphical User Interface)
-Cada interface gráfica, cada componente, é um objeto. Tudo é orientação a objetos.
-JFrame: A janela principal vazia
+Cada interface gráfica, cada componente, é um objeto.
+
+JFrame: A janela principal vazia. Uma classe. Nela se recebe os dados e as respostas ao usuário. A interface gráfica é formada por Componentes, formados por Propriedades(caracteristicas dum componente) e Eventos(comportamento de um componente).
+
 JForm: É uma tela visual pronta criada pelo NetBeans.
-JLabel: Texto na tela.
-JTextField: Campo de digitação.
-JButton: Botão clicável.
-JPanel: Container.
 
+JLabel: Texto na tela. Nomenclatura: lblxyz
 
-		
+JTextField: Campo de digitação. Nomenclatura: edtxyz
+
+JButton: Botão clicável. Nomenclatura: btnxyz
+
+JPanel: Container. Nomenclatura: panxyz

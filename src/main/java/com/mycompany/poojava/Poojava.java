@@ -1,6 +1,7 @@
 package com.mycompany.poojava;
 
 // IMPORTS
+import com.mycompany.poojava.gui.FrCadProduto;
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
@@ -294,7 +295,7 @@ public class Poojava {
         Abstrata abstrata = new Concreta();
         abstrata.printar();
         Concreta concreta = new Concreta();
-        concreta.interfaces();*/
+        concreta.interfaces();
         
         
         // Função Polimorfo chama de forma polimórfica os objetos concretos
@@ -302,6 +303,18 @@ public class Poojava {
         Interface cl = new Classe();
         Polimorfo(co, cl);
         
+        
+        Interface impressora = new Classe();
+        Sistema sistema = new Sistema(impressora);
+        sistema.imprimirDocumento();
+        
+        
+        GerenciadorProduto gerente = new GerenciadorProduto();
+        gerente.adicionarProduto(produto);
+        
+        FrCadProduto tela = new FrCadProduto();
+        tela.setVisible(true);*/
+                
         
         sc.close();
     }
