@@ -313,7 +313,14 @@ public class Poojava {
         gerente.adicionarProduto(produto);
         
         FrCadProduto tela = new FrCadProduto();
-        tela.setVisible(true);*/
+        tela.setVisible(true);
+        
+        
+        FrHome home = new FrHome();
+        home.setVisible(true);*/
+        
+        
+        
                 
         
         sc.close();

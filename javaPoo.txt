@@ -216,12 +216,17 @@ Cada interface gráfica, cada componente, é um objeto.
 
 JFrame: A janela principal vazia. Uma classe. Nela se recebe os dados e as respostas ao usuário. A interface gráfica é formada por Componentes, formados por Propriedades(caracteristicas dum componente) e Eventos(comportamento de um componente).
 
+JDialog: Janela secundária, depende de outra janela principal e modal. Modal = true: bloqueia outras telas até esta estar concluida. 
+
 JForm: É uma tela visual pronta criada pelo NetBeans.
 
 JLabel: Texto na tela. Nomenclatura: lblxyz
 
-JTextField: Campo de digitação. Nomenclatura: edtxyz
+JTextField/Area: Campo de digitação. Nomenclatura: edtxyz
 
 JButton: Botão clicável. Nomenclatura: btnxyz
 
 JPanel: Container. Nomenclatura: panxyz
+
+
+		

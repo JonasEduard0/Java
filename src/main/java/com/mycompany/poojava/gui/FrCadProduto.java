@@ -1,13 +1,20 @@
 package com.mycompany.poojava.gui;
-
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class FrCadProduto extends javax.swing.JFrame {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadProduto.class.getName());
 
+    private String codEscolhido;
+    private boolean editando;
+    private GerenciadorProduto gerente;
+    
     public FrCadProduto() {
         initComponents();
+        
+        this.editando = false;
+        this.codEscolhido = "";
+        this.gerente = new GerenciadorProduto();
         
         habilitarCampos(false);
     }
@@ -22,8 +29,8 @@ public class FrCadProduto extends javax.swing.JFrame {
         panBotoes = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblCode = new javax.swing.JLabel();
@@ -69,15 +76,19 @@ public class FrCadProduto extends javax.swing.JFrame {
         panBotoes.add(btnNovo);
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(this::btnEditarActionPerformed);
         panBotoes.add(btnEditar);
 
-        btnExcluir.setText("Excluir");
-        panBotoes.add(btnExcluir);
-
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(this::btnCancelarActionPerformed);
         panBotoes.add(btnCancelar);
 
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(this::btnExcluirActionPerformed);
+        panBotoes.add(btnExcluir);
+
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(this::btnSalvarActionPerformed);
         panBotoes.add(btnSalvar);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
@@ -184,8 +195,91 @@ public class FrCadProduto extends javax.swing.JFrame {
         //Limpa e habilita campos
         limparCampos();
         habilitarCampos(true);
+        this.editando = false;
     }//GEN-LAST:event_btnNovoActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limparCampos();
+        habilitarCampos(false);
+        this.editando = false;
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        Produto novoProduto = camposParaObjeto();
+        
+        if (this.editando == true) {
+            gerente.atualizarProduto(codEscolhido, novoProduto);
+        } else{
+            gerente.adicionarProduto(novoProduto);
+        }
+        
+        gerente.adicionarProduto(novoProduto);
+        
+        limparCampos();
+        habilitarCampos(false);
+        this.editando = false;
+        
+        String listagem = gerente.toString();
+        edtListagem.setText(listagem);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        this.codEscolhido = JOptionPane.showInputDialog("Informe o codigo do produto: ");
+        Produto produtoEditando = gerente.buscarProduto(codEscolhido);
+        
+        if (produtoEditando =! null) {
+            this.editando = true;
+            limparCampos();
+            habilitarCampos(true);
+            
+            objetoParaCampos(produtoEditando)
+        } else{
+            JOptionPane.showMessageDialog(this, "Produto inexistente");
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        this.codEscolhido = JOptionPane.showInputDialog("Informe o codigo do produto: ");
+       
+        Produto produto = gerente.buscarProduto(codEscolhido);
+        
+        if (produto = null) {
+            JOptionPane.showMessageDialog(this, "Produto inexistente");
+        } else{
+            gerente.removerProduto(codEscolhido);
+            JOptionPane.showMessageDialog(this, "Produto excluido com sucesso!");
+        }
+        String listagem = gerente.toString();
+        edtListagem.setText(listagem);
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    
+    public void objetoParaCampos(Produto produto){
+        edtCodigo.setText(produto.getCodigo());
+        edtNome.setText(produto.getNome());
+        edtCusto.setText(produto.getCusto()+"");
+        edtPreco.setText(produto.getPreco()+"");
+    }
+    
+    private Produto camposParaObjeto(){
+        Produto p = new Produto();
+        produto.setCodigo(edtCodigo.getText());
+        produto.setNome(edtNome.getText());
+        
+        String custoStr = edtCusto.getText();
+        if (!custoStr.isEmpty()) {
+           double custo = Double.parseDouble(custoStr);
+           produto.setCusto(custo);
+        }
+        
+        String precoStr = edtPreco.getText(); //Como e num mas campo string, converte
+        if (!precoStr.isEmpty()) {
+           double preco = Double.parseDouble(precoStr);
+           produto.setPreco(preco);
+        }
+        
+        return produto;
+    }
 
     public void habilitarCampos(boolean flag){
         this.edtCodigo.setEnabled(flag);
