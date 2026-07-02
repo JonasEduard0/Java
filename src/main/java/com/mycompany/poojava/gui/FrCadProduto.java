@@ -7,6 +7,7 @@ public class FrCadProduto extends javax.swing.JFrame {
 
     private String codEscolhido;
     private boolean editando;
+    private ProdutoController controller;
     private GerenciadorProduto gerente;
     
     public FrCadProduto() {
@@ -14,7 +15,8 @@ public class FrCadProduto extends javax.swing.JFrame {
         
         this.editando = false;
         this.codEscolhido = "";
-        this.gerente = new GerenciadorProduto();
+        gerente = new GerenciadorProduto();
+        controller = new ProdutoController(gerente);
         
         habilitarCampos(false);
     }
@@ -192,10 +194,17 @@ public class FrCadProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoMouseClicked
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        if (this.editando) { //MVC, View
+            produtoController.atualizarProduto(codAntigo, edtNome.getText())
+        } else{
+            produtoController.adicionarProduto(edtCodigo.getText(), edtNome.getText())
+        }
+
         //Limpa e habilita campos
         limparCampos();
         habilitarCampos(true);
         this.editando = false;
+        this.atualizarTabela();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -225,7 +234,7 @@ public class FrCadProduto extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         this.codEscolhido = JOptionPane.showInputDialog("Informe o codigo do produto: ");
-        Produto produtoEditando = gerente.buscarProduto(codEscolhido);
+        Produto produtoEditando = controller.adicionarProduto(codEscolhido);
         
         if (produtoEditando =! null) {
             this.editando = true;
@@ -241,12 +250,12 @@ public class FrCadProduto extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         this.codEscolhido = JOptionPane.showInputDialog("Informe o codigo do produto: ");
        
-        Produto produto = gerente.buscarProduto(codEscolhido);
+        Produto produto = controller.buscarProduto(codEscolhido);
         
         if (produto = null) {
             JOptionPane.showMessageDialog(this, "Produto inexistente");
         } else{
-            gerente.removerProduto(codEscolhido);
+            controller.removerProduto(codEscolhido);
             JOptionPane.showMessageDialog(this, "Produto excluido com sucesso!");
         }
         String listagem = gerente.toString();

@@ -229,4 +229,21 @@ JButton: Botão clicável. Nomenclatura: btnxyz
 JPanel: Container. Nomenclatura: panxyz
 
 
-		
+		Model View Controller
+Dividir a aplicação em três camadas de acordo com as responsabilidades.
+
+- Model(modelo): camada que representa a lógica de negócio da aplicação, onde são realizadas as operações e cálculos que manipulam os dados. Gerencia o estado do sistema e notifica a View sobre mudanças relevantes. Model não deve ter conhecimento sobre a existência da View ou do Controller.
+É onde ficam os dados e as regras. Ex: private String atributo. Não sabe que existe tela.
+
+- View(visualização): camada que representa a interface de usuário da aplicação. Ela é responsável por exibir os dados e permitir que o usuário interaja com a aplicação. A View é notificada pelo Model e atualiza sua interface de acordo. interface gráfica, JFrame e JDialog
+
+- Controller(controlador): lida com a entrada do usuário, como cliques e digitação, e manipula o Model e a View em resposta. Notifica a View sobre mudanças relevantes no Model. Pega dados, cria objeto, mostra mensagem.
+
+
+
+
+
+
+
+
+
