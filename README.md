@@ -2,7 +2,7 @@
 
 Este repositório é uma **base completa de estudos e experimentos em Java** desenvolvido na faculdade, com foco principal em **Programação Orientada a Objetos (POO)**.
 
-Aqui têm:
+Aqui têm, de maneira menos formal e mais bagunçada:
 
 * 📖 Anotações teóricas
 * 💻 Exemplos práticos em código
@@ -69,13 +69,6 @@ Este repositório inclui exemplos de:
 * Classes abstratas
 * Sobrecarga de métodos (Overload)
 * Sobrescrita de métodos (Override)
-
-### 🔹 Outros Conceitos Importantes
-* Modificadores de acesso
-* `static`
-* `final`
-* Organização de código
-* Boas práticas de POO
 
 ---
 
